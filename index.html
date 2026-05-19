@@ -951,6 +951,62 @@ footer {
 /* ── IMG SLOT MIN HEIGHT ── */
 .real-img-slot, .sprzedaz-img-slot { min-height: 200px; }
 .omnie-photo-frame { min-height: 300px; }
+
+/* ── SECONDARY TEXT BLUR ── */
+.hero-lead,
+.hero-eyebrow,
+.hero-sec-name,
+.hero-sec-num,
+.scroll-indicator,
+.section-eyebrow,
+.omnie-left-eyebrow,
+.omnie-point-title,
+.omnie-point-body,
+.stat-label,
+.kategorie-desc,
+.kategorie-num,
+.realizacje-sub,
+.real-cat,
+.real-loc-text,
+.sprzedaz-sub,
+.sprzedaz-tag,
+.sprzedaz-loc-text,
+.rekom-eyebrow,
+.rekom-loc,
+.rekom-author,
+.kontakt-eyebrow,
+.kontakt-lead,
+.detail-label,
+.detail-val,
+.detail-sym,
+.form-group label,
+.footer-sub,
+.footer-nav a,
+.footer-copy,
+.footer-ig,
+.footer-phone,
+.footer-name,
+.header-logo-sub,
+.header-logo-name,
+.portrait-badge,
+.img-slot-tag,
+.sprzedaz-eyebrow {
+  filter: blur(3.5px);
+  opacity: 0.6;
+  transition: filter .3s ease, opacity .3s ease;
+}
+
+.hero-lead:hover,
+.hero-eyebrow:hover,
+.omnie-point-body:hover,
+.omnie-point-title:hover,
+.kontakt-lead:hover,
+.detail-val:hover,
+.rekom-loc:hover,
+.rekom-author:hover {
+  filter: blur(0);
+  opacity: 1;
+}
 </style>
 </head>
 <body>
