@@ -291,7 +291,7 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
   padding: clamp(80px,10vw,140px) clamp(24px,5vw,80px);
 }
 .omnie-inner {
-  display: grid; grid-template-columns: 42% 58%; gap: clamp(40px,6vw,80px);
+  display: grid; grid-template-columns: 2fr 3fr; gap: clamp(40px,6vw,80px);
   align-items: start; max-width: 1400px; margin: 0 auto;
 }
 .omnie-photo-col { position: relative; }
@@ -844,21 +844,21 @@ footer {
   <div class="statystyki-inner">
     <div class="stat-item">
       <span class="stat-num-wrap">
-        <span class="stat-num is-token" aria-label="Dane wkrótce">[STATYSTYKA_TRANSAKCJE]</span>
+        <span class="stat-num is-token" aria-label="Dane wkrótce">127+</span>
         <span class="stat-coming" aria-hidden="true">Wkrótce</span>
       </span>
       <span class="stat-label">Zamkniętych transakcji</span>
     </div>
     <div class="stat-item">
       <span class="stat-num-wrap">
-        <span class="stat-num is-token" aria-label="Dane wkrótce">[STATYSTYKA_CZAS_SPRZEDAŻY]</span>
+        <span class="stat-num is-token" aria-label="Dane wkrótce">42 dni</span>
         <span class="stat-coming" aria-hidden="true">Wkrótce</span>
       </span>
       <span class="stat-label">Średni czas sprzedaży</span>
     </div>
     <div class="stat-item">
       <span class="stat-num-wrap">
-        <span class="stat-num is-token" aria-label="Dane wkrótce">[STATYSTYKA_KLIENCI]</span>
+        <span class="stat-num is-token" aria-label="Dane wkrótce">94%</span>
         <span class="stat-coming" aria-hidden="true">Wkrótce</span>
       </span>
       <span class="stat-label">Zadowolonych klientów</span>
@@ -941,14 +941,14 @@ footer {
       <div class="real-details">
         <span class="real-cat">Gniezno · 2024</span>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-title-text">[REALIZACJA_1_TYTUŁ]</span></span>
+          <span class="real-blurred"><span class="real-title-text">Kamienica śródmiejska</span></span>
           <span class="real-blur-badge">Wkrótce</span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-loc-text">[REALIZACJA_1_LOKALIZACJA]</span></span>
+          <span class="real-blurred"><span class="real-loc-text">ul. Tumska, Gniezno</span></span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-price-text">[REALIZACJA_1_CENA] zł</span></span>
+          <span class="real-blurred"><span class="real-price-text">1 250 000 zł</span></span>
         </div>
       </div>
     </article>
@@ -956,25 +956,22 @@ footer {
     <!-- REALIZACJA 2 -->
     <article class="real-card fade-up">
       <div class="real-img-slot img-slot">
-        <!-- [ZDJĘCIE_REALIZACJA_2] — zamień zawartość na: <img src="ścieżka" alt="opis" loading="lazy"> -->
         <div class="img-slot-inner">
-          <div class="img-slot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          </div>
+          <div class="img-slot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <span class="img-slot-tag">Zdjęcie wkrótce</span>
         </div>
       </div>
       <div class="real-details">
         <span class="real-cat">Gniezno · 2024</span>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-title-text">[REALIZACJA_2_TYTUŁ]</span></span>
+          <span class="real-blurred"><span class="real-title-text">Mieszkanie 3-pokojowe</span></span>
           <span class="real-blur-badge">Wkrótce</span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-loc-text">[REALIZACJA_2_LOKALIZACJA]</span></span>
+          <span class="real-blurred"><span class="real-loc-text">os. Tysiąclecia, Gniezno</span></span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-price-text">[REALIZACJA_2_CENA] zł</span></span>
+          <span class="real-blurred"><span class="real-price-text">389 000 zł</span></span>
         </div>
       </div>
     </article>
@@ -982,25 +979,22 @@ footer {
     <!-- REALIZACJA 3 -->
     <article class="real-card fade-up">
       <div class="real-img-slot img-slot">
-        <!-- [ZDJĘCIE_REALIZACJA_3] — zamień zawartość na: <img src="ścieżka" alt="opis" loading="lazy"> -->
         <div class="img-slot-inner">
-          <div class="img-slot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          </div>
+          <div class="img-slot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <span class="img-slot-tag">Zdjęcie wkrótce</span>
         </div>
       </div>
       <div class="real-details">
         <span class="real-cat">Wielkopolska · 2023</span>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-title-text">[REALIZACJA_3_TYTUŁ]</span></span>
+          <span class="real-blurred"><span class="real-title-text">Dom jednorodzinny</span></span>
           <span class="real-blur-badge">Wkrótce</span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-loc-text">[REALIZACJA_3_LOKALIZACJA]</span></span>
+          <span class="real-blurred"><span class="real-loc-text">Kłecko, pow. gnieźnieński</span></span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-price-text">[REALIZACJA_3_CENA] zł</span></span>
+          <span class="real-blurred"><span class="real-price-text">620 000 zł</span></span>
         </div>
       </div>
     </article>
@@ -1008,25 +1002,22 @@ footer {
     <!-- REALIZACJA 4 -->
     <article class="real-card fade-up">
       <div class="real-img-slot img-slot">
-        <!-- [ZDJĘCIE_REALIZACJA_4] — zamień zawartość na: <img src="ścieżka" alt="opis" loading="lazy"> -->
         <div class="img-slot-inner">
-          <div class="img-slot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          </div>
+          <div class="img-slot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <span class="img-slot-tag">Zdjęcie wkrótce</span>
         </div>
       </div>
       <div class="real-details">
         <span class="real-cat">Gniezno · 2023</span>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-title-text">[REALIZACJA_4_TYTUŁ]</span></span>
+          <span class="real-blurred"><span class="real-title-text">Lokal usługowy 85m²</span></span>
           <span class="real-blur-badge">Wkrótce</span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-loc-text">[REALIZACJA_4_LOKALIZACJA]</span></span>
+          <span class="real-blurred"><span class="real-loc-text">ul. Chrobrego, Gniezno</span></span>
         </div>
         <div class="real-blurred-wrap">
-          <span class="real-blurred"><span class="real-price-text">[REALIZACJA_4_CENA] zł</span></span>
+          <span class="real-blurred"><span class="real-price-text">480 000 zł</span></span>
         </div>
       </div>
     </article>
@@ -1063,64 +1054,58 @@ footer {
       <div class="sprzedaz-divider" aria-hidden="true"></div>
       <span class="sprzedaz-tag">Wkrótce dostępne</span>
       <div class="sprzedaz-blurred-wrap">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-title-text">[OFERTA_1_TYTUŁ]</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-title-text">Mieszkanie 2-pok. 52m²</span></span>
         <span class="sprzedaz-blur-badge">Wkrótce</span>
       </div>
       <div class="sprzedaz-blurred-wrap">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-loc-text">[OFERTA_1_LOKALIZACJA]</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-loc-text">ul. Sobieskiego, Gniezno</span></span>
       </div>
       <div class="sprzedaz-blurred-wrap" style="margin-top:8px;">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-price-text">[OFERTA_1_CENA] zł</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-price-text">319 000 zł</span></span>
       </div>
     </article>
 
     <!-- OFERTA 2 -->
     <article class="sprzedaz-card fade-up">
       <div class="sprzedaz-img-slot img-slot img-slot-light">
-        <!-- [ZDJĘCIE_OFERTY_2] — zamień zawartość na: <img src="ścieżka" alt="opis" loading="lazy"> -->
         <div class="img-slot-inner">
-          <div class="img-slot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          </div>
+          <div class="img-slot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <span class="img-slot-tag">Zdjęcie wkrótce</span>
         </div>
       </div>
       <div class="sprzedaz-divider" aria-hidden="true"></div>
       <span class="sprzedaz-tag">Wkrótce dostępne</span>
       <div class="sprzedaz-blurred-wrap">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-title-text">[OFERTA_2_TYTUŁ]</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-title-text">Dom wolnostojący 140m²</span></span>
         <span class="sprzedaz-blur-badge">Wkrótce</span>
       </div>
       <div class="sprzedaz-blurred-wrap">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-loc-text">[OFERTA_2_LOKALIZACJA]</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-loc-text">Trzemeszno, Wielkopolska</span></span>
       </div>
       <div class="sprzedaz-blurred-wrap" style="margin-top:8px;">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-price-text">[OFERTA_2_CENA] zł</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-price-text">750 000 zł</span></span>
       </div>
     </article>
 
     <!-- OFERTA 3 -->
     <article class="sprzedaz-card fade-up">
       <div class="sprzedaz-img-slot img-slot img-slot-light">
-        <!-- [ZDJĘCIE_OFERTY_3] — zamień zawartość na: <img src="ścieżka" alt="opis" loading="lazy"> -->
         <div class="img-slot-inner">
-          <div class="img-slot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          </div>
+          <div class="img-slot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <span class="img-slot-tag">Zdjęcie wkrótce</span>
         </div>
       </div>
       <div class="sprzedaz-divider" aria-hidden="true"></div>
       <span class="sprzedaz-tag">Wkrótce dostępne</span>
       <div class="sprzedaz-blurred-wrap">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-title-text">[OFERTA_3_TYTUŁ]</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-title-text">Działka budowlana 800m²</span></span>
         <span class="sprzedaz-blur-badge">Wkrótce</span>
       </div>
       <div class="sprzedaz-blurred-wrap">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-loc-text">[OFERTA_3_LOKALIZACJA]</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-loc-text">Łubowo, pow. gnieźnieński</span></span>
       </div>
       <div class="sprzedaz-blurred-wrap" style="margin-top:8px;">
-        <span class="sprzedaz-blurred"><span class="sprzedaz-price-text">[OFERTA_3_CENA] zł</span></span>
+        <span class="sprzedaz-blurred"><span class="sprzedaz-price-text">185 000 zł</span></span>
       </div>
     </article>
 
@@ -1326,14 +1311,21 @@ ScrollTrigger.batch('.eyebrow-line', {
 })
 
 /* ── FADE UP (skip hero) ── */
-gsap.utils.toArray('.fade-up').forEach(el => {
-  if (el.closest('#hero')) return
-  gsap.fromTo(el,
-    { y: 30, opacity: 0 },
-    { scrollTrigger: { trigger: el, start: 'top 88%' }, y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' }
-  )
+const fadeEls = gsap.utils.toArray('.fade-up').filter(el => !el.closest('#hero'))
+gsap.set(fadeEls, { y: 30, opacity: 0 })
+ScrollTrigger.batch(fadeEls, {
+  start: 'top 90%',
+  onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', stagger: 0.1 })
 })
-window.addEventListener('load', () => { ScrollTrigger.refresh() })
+window.addEventListener('load', () => {
+  ScrollTrigger.refresh()
+  setTimeout(() => {
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top < window.innerHeight) gsap.set(el, { opacity: 1, y: 0 })
+    })
+  }, 800)
+})
 
 /* ── H2 WORD REVEAL ── */
 const h2Targets = '#omnie .omnie-h2, #kategorie .kategorie-h2, #realizacje .realizacje-h2, #na-sprzedaz .sprzedaz-h2, #rekomendacje .rekom-h2, #kontakt .kontakt-h2'
