@@ -100,6 +100,43 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
   border-left: 1px solid var(--divider);
 }
 .header-nav .hero-sec-name { font-size: 9px; }
+.header-menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(182,138,95,.24);
+  border-radius: 50%;
+  background: rgba(246,240,230,.05);
+  color: var(--cream);
+  backdrop-filter: blur(10px);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.header-menu-toggle:hover {
+  background: rgba(182,138,95,.12);
+  border-color: rgba(182,138,95,.44);
+  transform: translateY(-1px);
+}
+.header-menu-toggle:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+.header-menu-lines {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.header-menu-lines span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.mobile-menu {
+  display: none;
+}
+.mobile-menu-panel {
+  display: none;
+}
 .header-phone {
   font-size: 13px; font-weight: 500; color: var(--ink); background: var(--bronze);
   padding: 10px 22px; letter-spacing: .06em;
@@ -114,9 +151,78 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
   .header-nav .hero-section-link { flex: 0 0 auto; }
 }
 @media (max-width: 767px) {
-  #site-header { padding-left: 16px; padding-right: 16px; gap: 12px; }
+  #site-header {
+    grid-template-columns: 1fr auto;
+    padding: 12px 16px;
+    gap: 12px;
+    height: auto;
+  }
   .header-logo-text { display: none; }
-  .header-nav .hero-section-link { padding: 8px 12px; }
+  .header-nav, .header-phone { display: none; }
+  .header-menu-toggle { display: inline-flex; }
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 16px;
+    width: min(320px, calc(100vw - 32px));
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .28s ease, transform .28s ease;
+  }
+  #site-header.menu-open .mobile-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #site-header.menu-open .header-menu-lines span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  #site-header.menu-open .header-menu-lines span:nth-child(2) { opacity: 0; }
+  #site-header.menu-open .header-menu-lines span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu-panel {
+    display: block;
+    background: rgba(15,33,51,.96);
+    border: 1px solid rgba(182,138,95,.22);
+    border-radius: 22px;
+    box-shadow: 0 24px 50px rgba(7,14,23,.28);
+    overflow: hidden;
+    backdrop-filter: blur(18px);
+  }
+  .mobile-menu-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .mobile-menu-links a {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(182,138,95,.12);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .mobile-menu-links a:last-child { border-bottom: none; }
+  .mobile-menu-links a:hover,
+  .mobile-menu-links a:focus-visible {
+    background: rgba(182,138,95,.12);
+    color: var(--cream);
+    outline: none;
+  }
+  .mobile-menu-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px;
+    background: rgba(246,240,230,.04);
+    border-top: 1px solid rgba(182,138,95,.12);
+  }
+  .mobile-menu-cta .btn-bronze,
+  .mobile-menu-cta .btn-outline-cream {
+    justify-content: center;
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 11px;
+  }
 }
 
 /* ── EYEBROW ── */
@@ -311,7 +417,14 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
 @media (max-width: 767px) {
   #hero { padding-top: 88px; padding-bottom: 36px; }
   .hero-h1 { font-size: clamp(38px,10vw,64px); }
-  .portrait-frame { max-width: 300px; }
+  .hero-inner { gap: 28px; }
+  .hero-text { order: 2; }
+  .hero-portrait-col { order: 1; justify-content: center; padding-left: 0; }
+  .hero-lead { max-width: none; font-size: 15px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 0; }
+  .hero-ctas .btn-bronze, .hero-ctas .btn-outline-cream { justify-content: center; width: 100%; }
+  .portrait-frame { max-width: 300px; margin: 0 auto; }
+  .hero-sections-bottom { display: none; }
   .scroll-indicator { display: none; }
 }
 
@@ -873,6 +986,28 @@ footer {
     </a>
   </nav>
   <a href="#kontakt" class="header-phone" aria-label="Przejdź do kontaktu">Kontakt</a>
+  <button class="header-menu-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span class="header-menu-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-panel">
+      <nav class="mobile-menu-links" aria-label="Menu mobilne">
+        <a href="#omnie">O mnie</a>
+        <a href="#kategorie">Usługi</a>
+        <a href="#realizacje">Realizacje</a>
+        <a href="#na-sprzedaz">Na sprzedaż</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="mobile-menu-cta">
+        <a href="#kontakt" class="btn-bronze">Umów rozmowę</a>
+        <a href="https://instagram.com/sporakowski_nieruchomosci" class="btn-outline-cream" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <!-- ═══ HERO ═══ -->
@@ -1403,6 +1538,36 @@ gsap.registerPlugin(ScrollTrigger)
 window.addEventListener('scroll', () => {
   document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 80)
 }, { passive: true })
+
+const siteHeader = document.getElementById('site-header')
+const menuToggle = document.querySelector('.header-menu-toggle')
+const mobileMenu = document.getElementById('mobile-menu')
+
+function closeMobileMenu() {
+  if (!siteHeader || !menuToggle) return
+  siteHeader.classList.remove('menu-open')
+  menuToggle.setAttribute('aria-expanded', 'false')
+}
+
+if (menuToggle && siteHeader && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = siteHeader.classList.toggle('menu-open')
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+  })
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu)
+  })
+
+  document.addEventListener('click', e => {
+    if (!siteHeader.classList.contains('menu-open')) return
+    if (!siteHeader.contains(e.target)) closeMobileMenu()
+  })
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 767) closeMobileMenu()
+  })
+}
 
 /* ── CUSTOM CURSOR ── */
 const dot = document.getElementById('cursor-dot')
