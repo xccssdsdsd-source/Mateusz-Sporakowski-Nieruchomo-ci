@@ -208,7 +208,35 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
   font-weight: 300; font-size: clamp(17px,1.6vw,22px); line-height: 1.65;
   color: var(--text-soft); margin-bottom: 48px; max-width: 520px;
 }
-.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+.hero-sections {
+  display: flex; align-items: stretch; gap: 0;
+  border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider);
+  max-width: 520px;
+}
+.hero-section-link {
+  flex: 1; display: flex; flex-direction: column; gap: 6px;
+  padding: 14px 0 14px clamp(0px, 1vw, 16px);
+  border-right: 1px solid var(--divider);
+  transition: opacity .2s ease;
+  position: relative;
+}
+.hero-section-link:last-child { border-right: none; }
+.hero-section-link:hover { opacity: 1; }
+.hero-section-link:hover .hero-sec-num { color: var(--bronze-light); }
+.hero-section-link:hover .hero-sec-name { color: var(--cream); }
+.hero-section-link:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+.hero-sec-num {
+  font-family: var(--font-display); font-weight: 300; font-size: 11px;
+  color: var(--bronze); letter-spacing: .12em; line-height: 1;
+  transition: color .2s ease;
+}
+.hero-sec-name {
+  font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-muted); line-height: 1; white-space: nowrap;
+  transition: color .2s ease;
+}
+@media (max-width: 767px) { .hero-sections { display: none; } }
 .hero-portrait-col {
   display: flex; align-items: center; justify-content: flex-end;
   padding-left: clamp(16px,3vw,40px);
@@ -731,9 +759,31 @@ footer {
       </h1>
       <p class="hero-lead fade-up">Mateusz Sporakowski. Pośrednik od 2019 roku. Kamienice, mieszkania, domy, działki, lokale, wynajem.</p>
       <div class="hero-ctas fade-up">
-        <a href="#kontakt" class="btn-bronze" aria-label="Umów rozmowę">Umów rozmowę</a>
+        <a href="#kontakt" class="btn-bronze" aria-label="Umów rozmowę — przejdź do kontaktu">Umów rozmowę</a>
         <a href="#realizacje" class="btn-outline-cream" aria-label="Zobacz ofertę">Zobacz ofertę</a>
       </div>
+      <nav class="hero-sections fade-up" aria-label="Sekcje strony">
+        <a href="#omnie" class="hero-section-link">
+          <span class="hero-sec-num">01</span>
+          <span class="hero-sec-name">O mnie</span>
+        </a>
+        <a href="#kategorie" class="hero-section-link">
+          <span class="hero-sec-num">02</span>
+          <span class="hero-sec-name">Usługi</span>
+        </a>
+        <a href="#realizacje" class="hero-section-link">
+          <span class="hero-sec-num">03</span>
+          <span class="hero-sec-name">Realizacje</span>
+        </a>
+        <a href="#na-sprzedaz" class="hero-section-link">
+          <span class="hero-sec-num">04</span>
+          <span class="hero-sec-name">Na sprzedaż</span>
+        </a>
+        <a href="#kontakt" class="hero-section-link">
+          <span class="hero-sec-num">05</span>
+          <span class="hero-sec-name">Kontakt</span>
+        </a>
+      </nav>
     </div>
     <div class="hero-portrait-col">
       <div class="portrait-frame fade-up">
