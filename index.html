@@ -359,7 +359,7 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
 }
 .stat-num {
   font-family: var(--font-display); font-weight: 300;
-  font-size: clamp(64px,10vw,160px); line-height: .9; letter-spacing: -.03em; color: var(--cream);
+  font-size: clamp(48px,6vw,96px); line-height: .9; letter-spacing: -.03em; color: var(--cream);
   display: block;
 }
 .stat-num.is-token { filter: blur(10px); user-select: none; }
@@ -717,8 +717,9 @@ footer {
   .footer-right { align-items: center; }
 }
 
-/* ── ANIMATION INIT ── */
-.fade-up { opacity: 0; transform: translateY(30px); }
+/* ── IMG SLOT MIN HEIGHT ── */
+.real-img-slot, .sprzedaz-img-slot { min-height: 200px; }
+.omnie-photo-frame { min-height: 300px; }
 </style>
 </head>
 <body>
@@ -1327,11 +1328,12 @@ ScrollTrigger.batch('.eyebrow-line', {
 /* ── FADE UP (skip hero) ── */
 gsap.utils.toArray('.fade-up').forEach(el => {
   if (el.closest('#hero')) return
-  gsap.from(el, {
-    scrollTrigger: { trigger: el, start: 'top 80%' },
-    y: 30, opacity: 0, duration: 0.9, ease: 'power2.out'
-  })
+  gsap.fromTo(el,
+    { y: 30, opacity: 0 },
+    { scrollTrigger: { trigger: el, start: 'top 88%' }, y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' }
+  )
 })
+window.addEventListener('load', () => { ScrollTrigger.refresh() })
 
 /* ── H2 WORD REVEAL ── */
 const h2Targets = '#omnie .omnie-h2, #kategorie .kategorie-h2, #realizacje .realizacje-h2, #na-sprzedaz .sprzedaz-h2, #rekomendacje .rekom-h2, #kontakt .kontakt-h2'
