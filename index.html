@@ -32,7 +32,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { overflow-x: hidden; }
+html { overflow-x: clip; scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   background: var(--navy-deep);
@@ -243,9 +243,10 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
 }
 .portrait-frame {
   position: relative; width: 100%; max-width: 400px;
-  aspect-ratio: 4/5; border: 1px solid var(--bronze); overflow: hidden;
+  aspect-ratio: 1/1; border: 1px solid var(--bronze); overflow: hidden;
+  background: var(--navy-soft);
 }
-.portrait-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.portrait-frame img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s ease; }
 .portrait-frame:hover img { transform: scale(1.03); }
 .portrait-badge {
   position: absolute; bottom: 20px; left: 20px;
@@ -295,7 +296,7 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
 }
 .omnie-photo-col { position: relative; }
 .omnie-photo-frame {
-  width: 100%; border: 1px solid rgba(184,137,90,.25);
+  width: 100%; aspect-ratio: 3/4; border: 1px solid rgba(184,137,90,.25);
   overflow: hidden; position: relative;
 }
 .omnie-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -449,7 +450,7 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
 }
 .real-card:hover { transform: translateY(-4px); }
 .real-img-slot {
-  aspect-ratio: 3/4; margin-bottom: 16px;
+  width: 100%; aspect-ratio: 3/4; margin-bottom: 16px;
 }
 /* [ZDJĘCIE_REALIZACJA_N] — dodaj <img src="ścieżka" alt="opis"> wewnątrz .real-img-slot */
 .real-details { padding: 0 2px; }
@@ -503,7 +504,7 @@ body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--
 }
 .sprzedaz-card:hover { transform: translateY(-4px); }
 .sprzedaz-img-slot {
-  aspect-ratio: 4/3; margin-bottom: 20px; border: 1px solid rgba(184,137,90,.3);
+  width: 100%; aspect-ratio: 4/3; margin-bottom: 20px; border: 1px solid rgba(184,137,90,.3);
 }
 /* [ZDJĘCIE_OFERTY_N] — dodaj <img src="ścieżka" alt="opis"> wewnątrz .sprzedaz-img-slot */
 .sprzedaz-divider {
@@ -1279,23 +1280,15 @@ footer {
 <!-- CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 <script>
 'use strict'
 
-/* ── LENIS ── */
-const lenis = new Lenis({ lerp: 0.08, duration: 1.2, smoothWheel: true })
 gsap.registerPlugin(ScrollTrigger)
-lenis.on('scroll', ScrollTrigger.update)
-gsap.ticker.add(t => lenis.raf(t * 1000))
-gsap.ticker.lagSmoothing(0)
 
 /* ── HEADER SCROLL STATE ── */
-ScrollTrigger.create({
-  start: 'top -80px',
-  onEnter: () => document.getElementById('site-header').classList.add('scrolled'),
-  onLeaveBack: () => document.getElementById('site-header').classList.remove('scrolled')
-})
+window.addEventListener('scroll', () => {
+  document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 80)
+}, { passive: true })
 
 /* ── CUSTOM CURSOR ── */
 const dot = document.getElementById('cursor-dot')
@@ -1425,7 +1418,7 @@ timer = setInterval(() => goTo((current + 1) % slides.length), 6000)
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'))
-    if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -72 }) }
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' }) }
   })
 })
 
